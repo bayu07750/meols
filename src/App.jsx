@@ -26,6 +26,72 @@ function App() {
         </div>
         <img src={headerImage} alt="image header" className="absolute inset-0 blur-sm object-center" />
       </header>
+      <main className="py-11">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-3 gap-6">
+            {/* card here */}
+            <div className="overflow-hidden rounded-lg shadow-md">
+              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
+                <h3 className="text-gray-600 font-light ">Indonesia</h3>
+                <div className="text-xl font-semibold mt-1">$9.99</div>
+              </div>
+            </div>
+            {/* edn card jere */}
+            {/* card here */}
+            <div className="overflow-hidden rounded-lg shadow-md">
+              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
+                <h3 className="text-gray-600 font-light ">Indonesia</h3>
+                <div className="text-xl font-semibold mt-1">$9.99</div>
+              </div>
+            </div>
+            {/* edn card jere */}
+            {/* card here */}
+            <div className="overflow-hidden rounded-lg shadow-md">
+              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
+                <h3 className="text-gray-600 font-light ">Indonesia</h3>
+                <div className="text-xl font-semibold mt-1">$9.99</div>
+              </div>
+            </div>
+            {/* edn card jere */}
+            {/* card here */}
+            <div className="overflow-hidden rounded-lg shadow-md">
+              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
+                <h3 className="text-gray-600 font-light ">Indonesia</h3>
+                <div className="text-xl font-semibold mt-1">$9.99</div>
+              </div>
+            </div>
+            {/* edn card jere */}
+            {/* card here */}
+            <div className="overflow-hidden rounded-lg shadow-md">
+              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
+                <h3 className="text-gray-600 font-light ">Indonesia</h3>
+                <div className="text-xl font-semibold mt-1">$9.99</div>
+              </div>
+            </div>
+            {/* edn card jere */}
+            {/* card here */}
+            <div className="overflow-hidden rounded-lg shadow-md">
+              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
+                <h3 className="text-gray-600 font-light ">Indonesia</h3>
+                <div className="text-xl font-semibold mt-1">$9.99</div>
+              </div>
+            </div>
+            {/* edn card jere */}
+          </div>
+        </div>
+      </main>
     </>
   );
 }

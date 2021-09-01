@@ -12,6 +12,7 @@ const useMeals = () => {
 
   const handleKeyUpEnter = async (e) => {
     if (e.keyCode === 13) {
+      mealsCtx.setCurrentIsLoading(true);
       try {
         const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${enteredSearchQuery}`);
 
@@ -28,6 +29,7 @@ const useMeals = () => {
       } catch (e) {
         console.log(e.message);
       }
+      mealsCtx.setCurrentIsLoading(false);
     }
   };
 

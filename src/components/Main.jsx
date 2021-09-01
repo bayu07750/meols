@@ -15,6 +15,10 @@ const Main = (props) => {
     content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">No food found</div>;
   }
 
+  if (mealsCtx.isLoading) {
+    content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">Loading...</div>;
+  }
+
   return (
     <main className="py-11">
       <div className="container mx-auto px-6">{content}</div>

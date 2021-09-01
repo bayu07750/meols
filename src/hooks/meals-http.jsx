@@ -1,7 +1,9 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useContext } from 'react';
 import Meal from './../model/Meal';
+import { MealsContext } from './../context/meals-context';
 
 const useMeals = () => {
+  const mealsCtx = useContext(MealsContext);
   const [enteredSearchQuery, setEnteredSearchQuery] = useState('');
 
   const handleChangeEnteredSearchQuery = useCallback((e) => {
@@ -15,7 +17,7 @@ const useMeals = () => {
       const dataMeals = data.meals.map((meal) => {
         return new Meal(meal.idMeal, meal.strMeal, meal.strArea, meal.strMealThumb, meal.strSource);
       });
-      console.log(dataMeals);
+      mealsCtx.setDataMeals(dataMeals);
     }
   };
 

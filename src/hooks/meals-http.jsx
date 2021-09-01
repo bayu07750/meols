@@ -12,12 +12,22 @@ const useMeals = () => {
 
   const handleKeyUpEnter = async (e) => {
     if (e.keyCode === 13) {
-      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${enteredSearchQuery}`);
-      const data = await response.json();
-      const dataMeals = data.meals.map((meal) => {
-        return new Meal(meal.idMeal, meal.strMeal, meal.strArea, meal.strMealThumb, meal.strSource);
-      });
-      mealsCtx.setDataMeals(dataMeals);
+      try {
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${enteredSearchQuery}`);
+
+        if (!response.ok) {
+          throw new Error('Error des!!');
+        }
+
+        const data = await response.json();
+        const savedataMeals = data.meals ?? [];
+        const dataMeals = savedataMeals.map((meal) => {
+          return new Meal(meal.idMeal, meal.strMeal, meal.strArea, meal.strMealThumb, meal.strSource);
+        });
+        mealsCtx.setDataMeals(dataMeals);
+      } catch (e) {
+        console.log(e.message);
+      }
     }
   };
 

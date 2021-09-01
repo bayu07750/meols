@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchIcon from './icons/SearchIcon';
-import headerImage from './../assets/header-image.jpg';
+import headerImage from './../../assets/header-image.jpg';
+import SearchMealsForm from './SearchMealsForm';
 
 const Header = () => {
   return (
@@ -12,16 +12,7 @@ const Header = () => {
           sapiente optio, adipisci fugit. Accusantium vero officia optio a assumenda, sunt reprehenderit illum sapiente
           fugit?
         </div>
-        <div className="min-w-[500px] mt-12 flex items-center gap-2 bg-white px-6 py-3 rounded-full">
-          <SearchIcon className="w-6 h-6" />
-          <input
-            type="search"
-            id="search"
-            name="search"
-            placeholder="Search meals here..."
-            className="border-none focus:outline-none focus:ring-0 w-full"
-          />
-        </div>
+        <SearchMealsForm />
       </div>
       <img src={headerImage} alt="image header" className="absolute inset-0 blur-sm object-center" />
     </header>

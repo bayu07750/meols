@@ -1,97 +1,24 @@
-import React from 'react';
-import headerImage from './assets/header-image.jpg';
-import SearchIcon from './components/icons/SearchIcon';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Main from './components/Main';
 
 function App() {
+  const [enteredSearch, setEnteredSearch] = useState('');
+
+  const handleSearchOnChange = (e) => {
+    setEnteredSearch(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    if (e.keyCode === 13) {
+      console.log(`you search ${enteredSearch}`);
+    }
+  };
+
   return (
     <>
-      <header className="h-[400px] overflow-hidden relative">
-        <div className="relative z-10 h-full w-full flex flex-col items-center justify-center">
-          <h1 className="text-5xl text-white font-extrabold">Temukan makanan atau sekedar melihat</h1>
-          <div className="text-white mt-4 max-w-xl text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptatem odio accusantium sunt tempora ut
-            sapiente optio, adipisci fugit. Accusantium vero officia optio a assumenda, sunt reprehenderit illum
-            sapiente fugit?
-          </div>
-          <div className="min-w-[500px] mt-12 flex items-center gap-2 bg-white px-6 py-3 rounded-full">
-            <SearchIcon className="w-6 h-6" />
-            <input
-              type="search"
-              id="search"
-              name="search"
-              placeholder="Search meals here..."
-              className="border-none focus:outline-none focus:ring-0 w-full"
-            />
-          </div>
-        </div>
-        <img src={headerImage} alt="image header" className="absolute inset-0 blur-sm object-center" />
-      </header>
-      <main className="py-11">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-3 gap-6">
-            {/* card here */}
-            <div className="overflow-hidden rounded-lg shadow-md">
-              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
-                <h3 className="text-gray-600 font-light ">Indonesia</h3>
-                <div className="text-xl font-semibold mt-1">$9.99</div>
-              </div>
-            </div>
-            {/* edn card jere */}
-            {/* card here */}
-            <div className="overflow-hidden rounded-lg shadow-md">
-              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
-                <h3 className="text-gray-600 font-light ">Indonesia</h3>
-                <div className="text-xl font-semibold mt-1">$9.99</div>
-              </div>
-            </div>
-            {/* edn card jere */}
-            {/* card here */}
-            <div className="overflow-hidden rounded-lg shadow-md">
-              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
-                <h3 className="text-gray-600 font-light ">Indonesia</h3>
-                <div className="text-xl font-semibold mt-1">$9.99</div>
-              </div>
-            </div>
-            {/* edn card jere */}
-            {/* card here */}
-            <div className="overflow-hidden rounded-lg shadow-md">
-              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
-                <h3 className="text-gray-600 font-light ">Indonesia</h3>
-                <div className="text-xl font-semibold mt-1">$9.99</div>
-              </div>
-            </div>
-            {/* edn card jere */}
-            {/* card here */}
-            <div className="overflow-hidden rounded-lg shadow-md">
-              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
-                <h3 className="text-gray-600 font-light ">Indonesia</h3>
-                <div className="text-xl font-semibold mt-1">$9.99</div>
-              </div>
-            </div>
-            {/* edn card jere */}
-            {/* card here */}
-            <div className="overflow-hidden rounded-lg shadow-md">
-              <img src={headerImage} alt="" className="h-48 w-full object-cover object-center" />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold tracking-wide">Title meals</h2>
-                <h3 className="text-gray-600 font-light ">Indonesia</h3>
-                <div className="text-xl font-semibold mt-1">$9.99</div>
-              </div>
-            </div>
-            {/* edn card jere */}
-          </div>
-        </div>
-      </main>
+      <Header />
+      <Main />
     </>
   );
 }

@@ -22,4 +22,4 @@ const SearchMealsForm = () => {
   );
 };
 
-export default SearchMealsForm;
+export default React.memo(SearchMealsForm);

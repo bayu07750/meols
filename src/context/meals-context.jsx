@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 
 export const MealsContext = React.createContext({
   meals: [],
@@ -8,14 +8,16 @@ export const MealsContext = React.createContext({
 const MealsContextProvider = (props) => {
   const [meals, setMeals] = useState([]);
 
-  const setDataMeals = (meals) => {
+  const setDataMeals = useCallback((meals) => {
     setMeals(meals);
-  };
+  }, []);
 
-  const dataContext = {
-    meals,
-    setDataMeals,
-  };
+  const dataContext = useMemo(() => {
+    return {
+      meals,
+      setDataMeals,
+    };
+  }, [meals, setDataMeals]);
 
   return <MealsContext.Provider value={dataContext}>{props.children}</MealsContext.Provider>;
 };

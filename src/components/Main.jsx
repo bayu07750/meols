@@ -1,11 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useCallback } from 'react';
 import Meals from './meals/Meals';
+import Meal from './../model/Meal';
 import { MealsContext } from './../context/meals-context';
 
 const Main = (props) => {
   const mealsCtx = useContext(MealsContext);
 
-  let content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">No food data yet</div>;
+  const fecthMeals = useCallback(async () => {
+    mealsCtx.setCurrentIsLoading(true);
+    try {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=a`);
+
+      if (!response.ok) {
+        throw new Error('Something want wrong!');
+      }
+
+      const data = await response.json();
+      const savedataMeals = data.meals ?? [];
+      const dataMeals = savedataMeals.map((meal) => {
+        return new Meal(meal.idMeal, meal.strMeal, meal.strArea, meal.strMealThumb, meal.strSource);
+      });
+
+      mealsCtx.setDataMeals(dataMeals);
+    } catch (e) {
+      console.log(e.message);
+    }
+    mealsCtx.setCurrentIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fecthMeals();
+  }, [fecthMeals]);
+
+  let content;
 
   if (mealsCtx.meals.length > 0) {
     content = <Meals />;

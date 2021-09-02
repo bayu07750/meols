@@ -3,7 +3,7 @@ import Meals from './meals/Meals';
 import Meal from './../model/Meal';
 import { MealsContext } from './../context/meals-context';
 
-const Main = (props) => {
+const Main = () => {
   const mealsCtx = useContext(MealsContext);
 
   const fecthMeals = useCallback(async () => {
@@ -23,7 +23,7 @@ const Main = (props) => {
 
       mealsCtx.setDataMeals(dataMeals);
     } catch (e) {
-      console.log(e.message);
+      mealsCtx.setCurrentIsError(e.message);
     }
     mealsCtx.setCurrentIsLoading(false);
   }, []);
@@ -40,6 +40,10 @@ const Main = (props) => {
 
   if (mealsCtx.meals.length === 0) {
     content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">No food found</div>;
+  }
+
+  if (mealsCtx.isError) {
+    content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">{mealsCtx.isError}</div>;
   }
 
   if (mealsCtx.isLoading) {

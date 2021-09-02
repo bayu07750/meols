@@ -18,19 +18,21 @@ const Main = () => {
   }
 
   if (mealsCtx.meals.length === 0) {
-    content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">No food found</div>;
+    content = <div className="text-center text-4xl font-bold text-gray-600 dark:text-gray-400 mt-8">No food found</div>;
   }
 
   if (mealsCtx.isError) {
-    content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">{mealsCtx.isError}</div>;
+    content = (
+      <div className="text-center text-4xl font-bold text-gray-600 dark:text-gray-400 mt-8">{mealsCtx.isError}</div>
+    );
   }
 
   if (mealsCtx.isLoading) {
-    content = <div className="text-center text-4xl font-bold text-gray-600 mt-8">Loading...</div>;
+    content = <div className="text-center text-4xl font-bold text-gray-600 dark:text-gray-400 mt-8">Loading...</div>;
   }
 
   return (
-    <main className="py-11">
+    <main className="py-11 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">{content}</div>
     </main>
   );

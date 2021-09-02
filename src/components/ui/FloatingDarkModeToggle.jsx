@@ -13,13 +13,13 @@ const FloatingDarkModeToggle = () => {
   const content = (
     <div
       onClick={toggleIsCurrentDarkMode}
-      className="group fixed bottom-8 right-8 w-14 h-14 cursor-pointer rounded-full shadow-lg bg-white flex items-center justify-center"
+      className="group fixed bottom-8 right-8 w-14 h-14 cursor-pointer rounded-full shadow-lg bg-white dark:bg-gray-700 flex items-center justify-center"
     >
       {!isCurrentDarkMode && (
-        <MoonIcon className="w-6 h-6 group-hover:transform group-hover:rotate-[360deg] transition-all duration-300 ease-out" />
+        <MoonIcon className="text-black dark:text-gray-100 w-6 h-6 group-hover:transform group-hover:rotate-[360deg] transition-all duration-300 ease-out" />
       )}
       {isCurrentDarkMode && (
-        <SunIcon className="w-6 h-6 group-hover:transform group-hover:rotate-[360deg] transition-all duration-300 ease-out" />
+        <SunIcon className="text-black dark:text-gray-100 w-6 h-6 group-hover:transform group-hover:rotate-[360deg] transition-all duration-300 ease-out" />
       )}
     </div>
   );

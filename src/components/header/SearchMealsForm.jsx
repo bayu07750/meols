@@ -27,7 +27,7 @@ const SearchMealsForm = () => {
         id="search"
         name="search"
         placeholder="Search meals here..."
-        className="px-2 py-0 border-none focus:outline-none focus:ring-0 w-full"
+        className="bg-white dark:bg-gray-900 px-2 py-0 border-none focus:outline-none focus:ring-0 w-full"
         value={enteredSearchQuery}
         onChange={handleChangeEnteredSearchQuery}
         onKeyUp={handleKeyUpEnter}
